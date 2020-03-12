@@ -1,4 +1,4 @@
-#Importe data !  
+#Importe data
 remove(list = ls())
 setwd("~/Documents/manue/Manipulation/datascience-emmanuelle/programme_R/serveur_cluster_these/cluster/dorcel")
 
