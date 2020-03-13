@@ -1,9 +1,16 @@
 #Importe data
 remove(list = ls())
-setwd("~/Documents/manue/Manipulation/datascience-emmanuelle/programme_R/serveur_cluster_these/cluster/dorcel")
+setwd("~/manip/R/serveur_cluster_these/cluster/dorcel")
+
+#load bandit4abtest package
+library(devtools)
+#install_github("manuclaeys/bandit4abtest")
+library(bandit4abtest)
+#https://github.com/manuclaeys/bandit4abtest
 
 #Importe data
 library(jsonlite)
+
 
 data.train  <- jsonlite::fromJSON("parcoursuserDatabaseFinalModz1.JSON", simplifyDataFrame = TRUE)
 visitorReward <- jsonlite::fromJSON("parcours_reward_modz.JSON", simplifyDataFrame = TRUE)
@@ -34,6 +41,11 @@ for(i in 1:nrow(data.train)) data.train$time_spend_time_serie[i] <- lapply(data.
 list_cluster_k <- c(3,3,3)
 
 library(dplyr)
+
+
+library(dplyr)
+
+library(TimeSeriesBandits)
 
 my_obj <-   dba_clust_generate(dt = data.train, learn_size = (0.3*nrow(data.train)), explanatory_variable =  listInteger, list_cluster_k = list_cluster_k , print_graph = "none")
 

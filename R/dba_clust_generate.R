@@ -37,6 +37,8 @@ dba_clust_generate <- function(dt, type = "partitional" , list_cluster_k = list_
   #init
   j=1
   ############Clustering
+  library(doParallel)
+  library(dtwclust)
   cl <- makeCluster(detectCores())
   invisible(clusterEvalQ(cl, library(dtwclust)))
   registerDoParallel(cl)
